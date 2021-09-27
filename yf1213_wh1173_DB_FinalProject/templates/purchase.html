@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Flight</title>
+    <link rel="stylesheet" href="/static/styles/purchase.css">
+    <style>
+      .button {
+        margin:10px;
+        display: inline-block;
+        padding: 5px 10px;
+        font-size: 18px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #d7a9bd;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 5px #999;
+      }
+
+      .button:hover {background-color: #a58190}
+
+      .button:active {
+        background-color: #a58190;
+        box-shadow: 0 2px #666;
+        transform: translateY(2px);
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <a href="/public">Back</a>
+      <div class="table_wrapper">
+        <table id="t_c">
+          {% if type=="city" %}
+          <tr>
+            <th>Airline</th>
+            <th>Flight number</th>
+            <th>Departure city</th>
+            <th>Departure airport</th>
+            <th>Departure time</th>
+            <th>Arrival city</th>
+            <th>Arrival airport</th>
+            <th>Arrival time</th>
+            <th>Status</th>
+            <th>Price (RMB)</th>
+            {% if is_agent %}
+              <th>Customer email</th>
+            {% endif %}
+            <th>Purchase</th>
+
+          </tr>
+          {% for elements in posts %}
+          <tr>
+            <td>{{elements[0]}}</td>
+            <td>{{elements[1]}}</td>
+            <td>{{cities[0]}}</td>
+            <td>{{elements[2]}}</td>
+            <td>{{elements[3]}}</td>
+            <td>{{cities[1]}}</td>
+            <td>{{elements[4]}}</td>
+            <td>{{elements[5]}}</td>
+            <td>{{elements[6]}}</td>
+            <td>{{elements[7]}}</td>
+            {% if is_agent %}
+              <form action="/agent_Purchase" method="POST">
+                  <td>
+                    <input type="text" name="customer" style="width:80px;">
+                  </td>
+                <td><button type="submit" class="button" name="string" value="{{elements[0]}},{{elements[1]}}">Purchase</button></td>
+              </form>
+            {% else %}
+              <td>
+                <form action="/cus_Purchase" method="POST">
+                  <button type="submit" class="button" name="string" value="{{elements[0]}},{{elements[1]}}">Purchase</button>
+                </form>
+              </td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+          {% endif %}
+
+          {% if type=="airport" %}
+          <tr>
+            <th>Airline</th>
+            <th>Flight number</th>
+            <th>Departure airport</th>
+            <th>Departure time</th>
+            <th>Arrival airport</th>
+            <th>Arrival time</th>
+            <th>Status</th>
+            <th>Price (RMB)</th>
+            {% if is_agent %}
+              <th>Customer email</th>
+            {% endif %}
+            <th>Purchase</th>
+          </tr>
+          {% for elements in posts %}
+          <tr>
+            <td>{{elements[0]}}</td>
+            <td>{{elements[1]}}</td>
+            <td>{{elements[2]}}</td>
+            <td>{{elements[3]}}</td>
+            <td>{{elements[4]}}</td>
+            <td>{{elements[5]}}</td>
+            <td>{{elements[6]}}</td>
+            <td>{{elements[7]}}</td>
+            {% if is_agent %}
+              <form action="/agent_Purchase" method="POST">
+                  <td>
+                    <input type="text" name="customer" style="width:80px;">
+                  </td>
+                <td><button type="submit" name="string" value="{{elements[0]}},{{elements[1]}}">Purchase</button></td>
+              </form>
+            {% else %}
+              <td>
+                <form action="/cus_Purchase" method="POST">
+                  <button type="submit" name="string" value="{{elements[0]}},{{elements[1]}}">Purchase</button>
+                </form>
+              </td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+
+          {% endif %}
+
+        </table>
+      </div>
+    </div>
+    <!-- <script src="/static/js/purchase.js" charset="utf-8"></script> -->
+  </body>
+</html>

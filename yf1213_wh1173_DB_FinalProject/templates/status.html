@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Commission</title>
+    <link rel="stylesheet" href="/static/styles/commission.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <a href="/public">Back</a>
+      <div class="table_wrapper">
+        <table id="t_c">
+          <tr>
+            <th>Airline</th>
+            <th>Flight number</th>
+            <th>Departure airport</th>
+            <th>Departure time</th>
+            <th>Arrival airport</th>
+            <th>Arrival time</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            {% for each in posts %}
+            <td>{{each[0]}}</td>
+            <td>{{each[1]}}</td>
+            <td>{{each[2]}}</td>
+            <td>{{each[3]}}</td>
+            <td>{{each[4]}}</td>
+            <td>{{each[5]}}</td>
+            <td>{{each[6]}}</td>
+            {% endfor %}
+          </tr>
+        </table>
+      </div>
+
+    </div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- <script src="/static/js/commission.js" charset="utf-8"></script> -->
+  </body>
+</html>

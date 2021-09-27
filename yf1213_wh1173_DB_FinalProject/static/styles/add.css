@@ -1,0 +1,32 @@
+.page{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+#input_wrapper{
+  padding: 40px;
+  border: 3px solid #8dabd3;
+  border-radius: 10px;
+  height:60vh
+}
+.login{
+margin-left: 300px;
+}
+#flight_wrapper{
+  position: absolute;
+}
+#status_wrapper{
+  position: absolute;
+  visibility: hidden;
+}
+#airplane_wrapper{
+  position: absolute;
+  visibility: hidden;
+}#airport_wrapper{
+  position: absolute;
+  visibility: hidden;
+}

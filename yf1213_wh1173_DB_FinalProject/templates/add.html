@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Add</title>
+    <link rel="stylesheet" href="/static/styles/add.css">
+    <style>
+      .button {
+        margin-left: 300px;
+        display: inline-block;
+        padding: 5px 10px;
+        font-size: 18px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #d7a9bd;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 5px #999;
+      }
+
+      .button:hover {background-color: #a58190}
+
+      .button:active {
+        background-color: #a58190;
+        box-shadow: 0 2px #666;
+        transform: translateY(2px);
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="page">
+      <div id="input_wrapper">
+        <label >I want to:</label><br>
+        <input type="radio" id="flight" name="login" value="flight" checked="true">Create new flights
+        <input type="radio" id="state" name="login" value="state">Change flight status
+        <input type="radio" id="airplane" name="login" value="airplane">Add new airplane
+        <input type="radio" id="airport" name="login" value="airport">Add new airport<br><br>
+        <div id="flight_wrapper">
+          <form action="/staff_createNewFlight" method="POST">
+            <label for="flight_num">Flight number:</label><br>
+            <input type="text" name="flight_num" class="input" required><br>
+            <label for="dep_airport">Departure airport:</label><br>
+            <input type="text" name="dep_airport" class="input" required><br>
+            <label for="dep_time">Departure time:</label><br>
+            <input type="datetime-local" name="dep_time" class="input" required><br>
+            <label for="arr_airport">Arrival airport:</label><br>
+            <input type="text" name="arr_airport" class="input" required><br>
+            <label for="arr_time">Arrival time:</label><br>
+            <input type="datetime-local" name="arr_time" class="input" required><br>
+            <label for="price">Price:</label><br>
+            <input type="text" name="price" class="input" required><br>
+            <label for="status">Status:</label><br>
+            <select id="status" name="status">
+              <option value="upcoming">Upcoming</option>
+              <option value="in-progress">In progress</option>
+              <option value="completed">Completed</option>
+              <option value="delay">Delay</option>
+              <option value="canceled">Canceled</option>
+            </select><br>
+            <label for="airplane">Airplane ID:</label><br>
+            <input type="text" name="airplane" class="input" required>
+            <input type="submit" class="button" value= Create />
+          </form>
+        </div>
+        <div id="status_wrapper">
+          <form action="/staff_changeStatus" method="POST">
+            <label for="s_flight_num">Flight number:</label><br>
+            <input type="text" name="s_flight_num" class="input" required><br>
+            <label for="n_status">Status change to: </label><br>
+            <select id="n_status" name="n_status">
+              <option value="upcoming">Upcoming</option>
+              <option value="in-progress">In progress</option>
+              <option value="completed">Completed</option>
+              <option value="delay">Delay</option>
+              <option value="canceled">Canceled</option>
+            </select>
+            <input type="submit" class="button" value= Change />
+          </form>
+        </div>
+        <div id="airplane_wrapper">
+          <form action="/staff_addAirplane" method="POST">
+            <label for="n_airplane">Airplane ID:</label><br>
+            <input type="text" name="n_airplane" class="input" required><br>
+            <label for="seats">Seats (n):</label><br>
+            <input type="text" name="seats" class="input" required>
+            <input type="submit" class="button" value= Add />
+          </form>
+        </div>
+        <div id="airport_wrapper">
+          <form action="/staff_addAirport" method="POST">
+            <label for="airport">Airport name:</label><br>
+            <input type="text" name="airport" class="input" required><br>
+            <label for="city">City:</label><br>
+            <input type="text" name="city" class="input" required>
+            <input type="submit" class="button" value= Add />
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="/static/js/add.js" charset="utf-8"></script>
+  </body>
+</html>

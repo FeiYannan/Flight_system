@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Top_customer</title>
+    <link rel="stylesheet" href="/static/styles/top_agents.css">
+    <style>
+      .button {
+        margin:10px;
+        display: inline-block;
+        padding: 5px 10px;
+        font-size: 18px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #d7a9bd;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 5px #999;
+      }
+
+      .button:hover {background-color: #a58190}
+
+      .button:active {
+        background-color: #a58190;
+        box-shadow: 0 2px #666;
+        transform: translateY(2px);
+      }
+      </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <form action="/staff_topAgents" method="POST">
+        <input class="button" type="submit" name="type" value="Tickets--past month">
+        <input class="button" type="submit" name="type" value="Tickets--past year">
+        <input class="button" type="submit" name="type" value="Commission--past year">
+      </form> <br>
+      <h3>Top 5 booking agents</h3>
+      <div class="table_wrapper">
+        <table id="t_c">
+          <tr>
+            <th>Booking agent ID</th>
+            {% if Type == "Commission--past year" %}
+            <th>Commission (RMB)</th>
+            {% else %}
+            <th>Tickets (n)</th>
+            {% endif %}
+          </tr>
+          {% for each in posts %}
+          <tr>
+            <td>{{each[0]}}</td>
+            <td>{{each[2]}}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+
+    </div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- <script src="/static/js/top_customer.js" charset="utf-8"></script> -->
+  </body>
+</html>

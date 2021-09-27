@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Public</title>
+    <link rel="stylesheet" href="/static/styles/public.css">
+    <style>
+      .button {
+        display: inline-block;
+        padding: 5px 10px;
+        font-size: 18px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #d7a9bd;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 5px #999;
+      }
+
+      .button:hover {background-color: #a58190}
+
+      .button:active {
+        background-color: #a58190;
+        box-shadow: 0 2px #666;
+        transform: translateY(2px);
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="login">
+      <a href="login">Login</a>
+    </div>
+    <!-- <div class="logged_in">
+      <div class="banner">
+        <p>Welcome, <span id="username"></span>!</p>
+      </div>
+      <div class="logout">
+        <a href="./login.html">Log out</a>
+      </div>
+    </div> -->
+    <div class="page">
+      <div id="state_wrapper">
+        <input type="radio" id="search_state" name="state" value="search_state" checked="true">Search flight
+        <input type="radio" id="flight_state" name="state" value="flight_state">Flight status
+      </div>
+      <div id="search_flight">
+        <div id="radio_wrapper">
+          <input type="radio" id="city_radio" name="search_by" value="city" checked="true">city
+          <input type="radio" id="airport_radio" name="search_by" value="airport">airport
+        </div>
+        <div id="input_wrapper">
+          <div id="city">
+            <form action="/Search_byCity" method="POST">
+              <label for="dep_city">Departure city:</label>
+              <input type="text" name="dep_city" class="input" required/></br>
+              <label for="arr_city">Arrival city:</label>
+              <input type="text" name="arr_city" class="input" required/></br>
+              <label for="date_city">Date:</label>
+              <input type="text" name="date_city" class="input" placeholder="xxxx-xx-xx" required/></br></br>
+              <input type="submit" class="button" value = Search />
+            </form>
+          </div>
+          <div id="airport">
+            <form action="/Search_byAirport" method="POST">
+              <label for="dep_airport">Departure airport:</label>
+              <input type="text" name="dep_airport" class="input" required/></br>
+              <label for="arr_airport">Arrival airport:</label>
+              <input type="text" name="arr_airport" class="input" required/></br>
+              <label for="date_airport">Date:</label>
+              <input type="text" name="date_airport" class="input" placeholder="xxxx-xx-xx" required/ ></br></br>
+              <input type="submit" class="button" value = Search />
+            </form>
+          </div>
+        </div>
+      </div>
+      <div id="flight_status">
+        <form action="/Search_status" method="POST">
+          <label for="flight_num">Flight number:</label></br>
+          <input type="text" name="flight_num" class="input" required/></br>
+          <label for="airline">Airline name:</label></br>
+          <input type="text" name="airline" class="input" required/></br>
+          <label for="flight_date">Search by:</label>
+          <div id="date_wrapper">
+            <input type="radio" id="dep_date" name="filter" value="dep_date" checked="true">Departure date
+            <input type="radio" id="arr_date" name="filter" value="arr_date">Arrival date
+          </div>
+          <input type="text" name="flight_date" class="input" required/></br></br>
+          <input type="submit" class="button" value = Search />
+        </form>
+      </div>
+    </div>
+    <script src="/static/js/public.js" charset="utf-8"></script>
+  </body>
+
+</html>

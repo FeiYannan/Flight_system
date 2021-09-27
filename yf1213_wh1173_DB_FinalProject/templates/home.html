@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="/static/styles/home.css">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
+    </head>
+  <body>
+    <div class="wrapper">
+      <div class="logged_in">
+        <div class="banner">
+          <p>Welcome, {{name}}</span>!</p>
+        </div>
+        <div class="logout">
+          <a href="/logout">Log out</a>
+        </div>
+      </div>
+      <div class="main_left" >
+       <ul>
+         {% if type=="customer" %}
+         <li data-src="/flight">View my flights</li>
+         <li data-src="/public">Purchase tickets</li>
+         <li data-src="/spending">Track my spending</li>
+         {% endif %}
+         {% if type=="agent" %}
+         <li data-src="/flight_a">View my flights</li>
+         <li data-src="/public">Purchase tickets</li>
+         <li data-src="/commission">View my commission</li>
+         <li data-src="/top_customer">View top customers</li>
+         {% endif %}
+
+         {% if type=="staff" %}
+         <li data-src="/flight_s">View my flights</li>
+         <li data-src="/add">Add/Change</li>
+         <li data-src="/top_agents">Top agents</li>
+         <li data-src="/frequent_customer">Frequent customers</li>
+         <li data-src="/report">Reports</li>
+         <li data-src="/revenue">Revenue</li>
+         <li data-src="/top_destinations">Top destinations</li>
+
+         {% endif %}
+
+       </ul>
+     </div>
+     <div class="main_right">
+       <div id="cover"></div>
+        <iframe frameborder="0" scrolling="yes" style="margin-top:20px; width:85%;height:99vh" src="" id="iframe"></iframe>
+      </div>
+    </div>
+    <!-- <script src="/static/js/home.js" charset="utf-8"></script> -->
+    <script type="text/javascript">
+    $(function(){
+        $(".main_left li").on("click",function(){
+            var address =$(this).attr("data-src");
+            $("iframe").attr("src",address);
+        });
+    });
+    </script>
+  </body>
+</html>

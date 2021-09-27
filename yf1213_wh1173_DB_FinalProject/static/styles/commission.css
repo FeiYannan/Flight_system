@@ -1,0 +1,33 @@
+table {
+  /* width:100%; */
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: center;
+}
+#t_c tr:nth-child(even) {
+  background-color: #f0e5e7;
+}
+#t_c tr:nth-child(odd) {
+ background-color: #fff;
+}
+#t_c th {
+  background-color: #cc70a3;
+  color: white;
+}
+.table_wrapper{
+  display: flex;
+  justify-content: center;
+  margin-top: 10vh;
+}
+.wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 15vh
+}

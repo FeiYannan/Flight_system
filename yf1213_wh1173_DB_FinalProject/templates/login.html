@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/styles/login.css">
+    <style>
+      .button {
+        margin-left: 100px;
+        display: inline-block;
+        padding: 5px 10px;
+        font-size: 18px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #d7a9bd;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 5px #999;
+      }
+
+      .button:hover {background-color: #a58190}
+
+      .button:active {
+        background-color: #a58190;
+        box-shadow: 0 2px #666;
+        transform: translateY(2px);
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="page">
+      <div id="input_wrapper">
+        <label >I am:</label><br>
+        <input type="radio" id="customer" name="login" value="customer" checked="true">Customer
+        <input type="radio" id="booking_agent" name="login" value="booking_agent">Booking agent
+        <input type="radio" id="airline_staff" name="login" value="airline_staff">Airline staff<br><br>
+        <div id="customer_wrapper">
+          <form action="/cus_loginAuth" method="POST">
+            <label for="c_email">Email:</label><br>
+            <input type="text" name="c_email" class="input" required><br>
+            <label for="c_password">Password:</label><br>
+            <input type="password" name="c_password" class="input" required>
+            <input type="submit" class="button" value= Login />
+            {% if error %}
+              <p class="error"> {{error}}</p>
+            {% endif %}
+          </form>
+        </div>
+        <div id="BA_wrapper">
+          <form action="/agent_loginAuth" method="POST">
+            <label for="b_email">Email:</label><br>
+            <input type="text" name="b_email" class="input" required><br>
+            <label for="b_password">Password:</label><br>
+            <input type="password" name="b_password" class="input" required><br>
+            <label for="b_ID">Booking agent ID:</label><br>
+            <input type="text" name="b_ID" class="input" required>
+            <input type="submit" class="button" value= Login />
+            {% if error %}
+              <p class="error"> {{error}}</p>
+            {% endif %}
+          </form>
+        </div>
+        <div id="AS_wrapper">
+          <form action="/staff_loginAuth" method="POST">
+            <label for="a_username">Username:</label><br>
+            <input type="text" name="a_username" class="input" required><br>
+            <label for="a_password">Password:</label><br>
+            <input type="password" name="a_password" class="input" required><br>
+            <label for="airline">Airline:</label><br>
+            <input type="text" name="airline" class="input" required>
+            <input type="submit" class="button" value= Login />
+            {% if error %}
+              <p class="error"> {{error}}</p>
+            {% endif %}
+          </form>
+        </div>
+      </div>
+      <p>Don't have an account? <a href="/register">Register</a> </p>
+    </div>
+    <script src="/static/js/login.js" charset="utf-8"></script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/static/styles/spending.css">
+    <style>
+      .button {
+        margin:10px;
+        display: inline-block;
+        padding: 5px 10px;
+        font-size: 18px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #d7a9bd;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 5px #999;
+      }
+
+      .button:hover {background-color: #a58190}
+
+      .button:active {
+        background-color: #a58190;
+        box-shadow: 0 2px #666;
+        transform: translateY(2px);
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="wrapper">
+        <div class="select">
+          <form action="/staff_reports" method="POST">
+            <label>From:</label>
+            <input type="date" id="from" name="from">
+            <label>To:</label>
+            <input type="date" id="to" name="to">
+            <input type="submit" class="button" value=View>
+          </form>
+        </div><br>
+        <div style="display:none">
+          <!-- <div> -->
+          {% for elements in posts %}
+            <p class="month">{{elements[1]}}</p>
+            <p class="spending">{{elements[0]}}</p>
+          {% endfor %}
+        </div>
+      <div id="chart_div"></div>
+
+    </div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="/static/js/report.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    </script>
+
+  </body>
+</html>

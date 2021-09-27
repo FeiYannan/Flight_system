@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Customer</title>
+    <link rel="stylesheet" href="/static/styles/customer.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <a href="/flight_s">Back</a>
+      <!-- <p>Customers on flight <span id="flight"></span>: </p> -->
+      <div class="table_wrapper">
+        <table id="t_c">
+          <tr>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Phone number</th>
+            <th>Passport number</th>
+            <th>Tickets (n)</th>
+          </tr>
+          {% for elements in posts %}
+          <tr>
+              <td>{{elements[0]}}</td>
+              <td>{{elements[1]}}</td>
+              <td>{{elements[2]}}</td>
+              <td>{{elements[3]}}</td>
+              <td>{{elements[4]}}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+    <!-- <script src="/static/js/customer.js" charset="utf-8"></script> -->
+  </body>
+</html>

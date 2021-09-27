@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Customer</title>
+    <link rel="stylesheet" href="/static/styles/customer.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <a href="/frequent_customer">Back</a>
+      <!-- <p>Customer <span id="customer"></span>'s flights: </p> -->
+      <div class="table_wrapper">
+        <table id="t_c">
+          <tr>
+            <th>Ticket ID</th>
+            <th>Purchase date</th>
+            <th>Flight number</th>
+            <th>Departure time</th>
+            <th>Departure airport</th>
+            <th>Arrival time</th>
+            <th>Arrival airport</th>
+            <th>Price (RMB)</th>
+            <th>Status</th>
+          </tr>
+            <!-- {% if not posts %}
+            <p>No existing data</p>
+            {% endif %} -->
+            {% for elements in posts %}
+            <tr>
+                <td>{{elements[0]}}</td>
+                <td>{{elements[1]}}</td>
+                <td>{{elements[2]}}</td>
+                <td>{{elements[3]}}</td>
+                <td>{{elements[4]}}</td>
+                <td>{{elements[5]}}</td>
+                <td>{{elements[6]}}</td>
+                <td>{{elements[7]}}</td>
+                <td>{{elements[8]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+      </div>
+    </div>
+    <!-- <script src="/static/js/customer.js" charset="utf-8"></script> -->
+  </body>
+</html>

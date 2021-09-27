@@ -1,0 +1,28 @@
+.page{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+#input_wrapper{
+  padding: 40px;
+  border: 3px solid #8dabd3;
+  border-radius: 10px;
+  width:500px;
+  height:50vh;
+  /* text-align: center; */
+}
+
+#customer_wrapper{
+  position: absolute;
+}
+#BA_wrapper{
+  position: absolute;
+  visibility: hidden;
+}#AS_wrapper{
+  position: absolute;
+  visibility: hidden;
+}
